@@ -5,6 +5,7 @@ const contentSchema = new Mongoose.Schema(
     showId: {
       type: String,
       required: true,
+      unique: true,
     },
     title: {
       type: String,
@@ -24,6 +25,11 @@ const contentSchema = new Mongoose.Schema(
     },
     contentCetificate: [
       {
+        certificateId: {
+          type: String,
+          requied: true,
+          unique: true,
+        },
         certificateType: {
           type: String,
           requied: true,
@@ -48,6 +54,7 @@ const contentSchema = new Mongoose.Schema(
         thumbnailId: {
           type: String,
           requied: true,
+          unique: true,
         },
         thumnailPath: {
           type: String,
@@ -105,32 +112,20 @@ const contentSchema = new Mongoose.Schema(
     },
     cast: [
       {
+        castId: {
+          type: String,
+          requied: true,
+          unique: true,
+        },
         artistId: {
           type: String,
           required: true,
         },
-        role: {
+        castedAs: {
           type: String,
           required: true,
         },
-        isActive: {
-          type: Boolean,
-          required: false,
-          default: true,
-        },
-        createdAt: {
-          type: Date,
-          required: true,
-        },
-        updatedAt: {
-          type: Date,
-          required: true,
-        },
-      },
-    ],
-    director: [
-      {
-        directorId: {
+        role: {
           type: String,
           required: true,
         },
@@ -154,6 +149,7 @@ const contentSchema = new Mongoose.Schema(
         productionHouseId: {
           type: String,
           requied: true,
+          unique: true,
         },
         isActive: {
           type: Boolean,
@@ -175,6 +171,7 @@ const contentSchema = new Mongoose.Schema(
         episodeId: {
           type: String,
           required: true,
+          unique: true,
         },
         title: {
           type: String,
@@ -182,6 +179,11 @@ const contentSchema = new Mongoose.Schema(
         },
         subtitle: [
           {
+            subtitleId: {
+              type: String,
+              requied: true,
+              unique: true,
+            },
             language: {
               type: String,
               requied: true,
@@ -207,6 +209,11 @@ const contentSchema = new Mongoose.Schema(
         ],
         audio: [
           {
+            audioId: {
+              type: String,
+              requied: true,
+              unique: true,
+            },
             language: {
               type: String,
               requied: true,

@@ -5,6 +5,7 @@ const logSchema = new Mongoose.Schema(
     logId: {
       type: String,
       required: true,
+      unique: true,
     },
     collectionName: {
       type: String,
