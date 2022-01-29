@@ -48,9 +48,17 @@ const accountSchema = new Mongoose.Schema(
       requred: true,
       unique: true,
     },
+    alternateEmail: {
+      type: String,
+      required: false,
+    },
     phone: {
       type: String,
       required: true,
+    },
+    alternatePhone: {
+      type: String,
+      required: false,
     },
     password: {
       type: String,
@@ -77,6 +85,11 @@ const accountSchema = new Mongoose.Schema(
           required: true,
           enum: ["mobile", "tablet", "laptop", "tv"],
         },
+        isSessionActive: {
+          type: Boolean,
+          required: true,
+          default: true,
+        },
         isActive: {
           type: Boolean,
           required: false,
@@ -96,6 +109,11 @@ const accountSchema = new Mongoose.Schema(
         },
       },
     ],
+    isPremium: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     isActive: {
       type: Boolean,
       required: false,

@@ -1,31 +1,27 @@
 const Mongoose = require("mongoose");
 
-const bookMarkSchema = new Mongoose.Schema(
+const userCardSchema = new Mongoose.Schema(
   {
-    bookMarkId: {
+    userCardId: {
       type: String,
       required: true,
       unique: true,
     },
-    accountId: {
-      type: String,
-      required: true,
-    },
-    bookMarkCollection: [
+    cards: [
       {
-        bookMarkCollectionId: {
+        cardId: {
           type: String,
           required: true,
           unique: true,
         },
-        episodeId: {
+        cardNumber: {
           type: String,
           required: true,
         },
         isActive: {
           type: Boolean,
-          default: true,
           required: false,
+          default: true,
         },
         createdAt: {
           type: Date,
@@ -39,8 +35,8 @@ const bookMarkSchema = new Mongoose.Schema(
     ],
     isActive: {
       type: Boolean,
-      default: true,
       required: false,
+      default: true,
     },
   },
   {
@@ -49,5 +45,5 @@ const bookMarkSchema = new Mongoose.Schema(
   }
 );
 
-const BookMarkModel = Mongoose.model("bookmark", bookMarkSchema);
-module.exports = BookMarkModel;
+const UserCardModel = Mongoose.model("usercard", userCardSchema);
+module.exports = UserCardModel;
