@@ -177,6 +177,10 @@ const contentSchema = new Mongoose.Schema(
           type: String,
           required: true,
         },
+        runTime: {
+          type: String,
+          required: true,
+        },
         subtitle: [
           {
             subtitleId: {
@@ -256,10 +260,100 @@ const contentSchema = new Mongoose.Schema(
         },
       },
     ],
-    runTime: {
-      type: String,
-      required: true,
-    },
+    trailers: [
+      {
+        trailerId: {
+          type: String,
+          required: true,
+          unique: true,
+        },
+        title: {
+          type: String,
+          required: true,
+        },
+        runTime: {
+          type: String,
+          required: true,
+        },
+        subtitle: [
+          {
+            subtitleId: {
+              type: String,
+              requied: true,
+              unique: true,
+            },
+            language: {
+              type: String,
+              requied: true,
+            },
+            transcriptPath: {
+              type: String,
+              requied: true,
+            },
+            isActive: {
+              type: Boolean,
+              required: false,
+              default: true,
+            },
+            createdAt: {
+              type: Date,
+              required: true,
+            },
+            updatedAt: {
+              type: Date,
+              required: true,
+            },
+          },
+        ],
+        audio: [
+          {
+            audioId: {
+              type: String,
+              requied: true,
+              unique: true,
+            },
+            language: {
+              type: String,
+              requied: true,
+            },
+            audioPath: {
+              type: String,
+              requied: true,
+            },
+            isActive: {
+              type: Boolean,
+              required: false,
+              default: true,
+            },
+            createdAt: {
+              type: Date,
+              required: true,
+            },
+            updatedAt: {
+              type: Date,
+              required: true,
+            },
+          },
+        ],
+        videoPath: {
+          type: String,
+          required: true,
+        },
+        isActive: {
+          type: Boolean,
+          required: false,
+          default: true,
+        },
+        createdAt: {
+          type: Date,
+          required: true,
+        },
+        updatedAt: {
+          type: Date,
+          required: true,
+        },
+      },
+    ],
     accessType: {
       type: String,
       enum: ["mobile", "basic", "standard", "premium"],
